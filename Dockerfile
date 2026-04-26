@@ -21,9 +21,9 @@ RUN flutter config --enable-linux-desktop \
 
 RUN flutter doctor
 
-RUN flutter pub get
-
 COPY pubspec.yaml pubspec.lock /app/fluffychat/
+
+RUN flutter pub get
 
 RUN flutter precache --android --linux --web
 
