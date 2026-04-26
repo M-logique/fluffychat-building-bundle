@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /app
 
-RUN git clone https://github.com/krille-chan/fluffychat
+RUN git clone --depth=1 https://github.com/krille-chan/fluffychat
 
 WORKDIR /app/fluffychat
 
