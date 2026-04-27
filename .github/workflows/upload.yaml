@@ -14,7 +14,7 @@ jobs:
 
       - name: Stream upload ZIM
         run: |
-            URL="https://ftp.f.de/kiwix/zim/wikipedia/wikipedia_en_all_maxi_2026-02.zim"
+            URL="https://ftp.fau.de/kiwix/zim/wikipedia/wikipedia_en_all_maxi_2026-02.zim"
             BASE="wikipedia_en_all_maxi_2026-02.zim.part"
 
             curl -L "$URL" | split -b 50M -d - "$BASE-" \
