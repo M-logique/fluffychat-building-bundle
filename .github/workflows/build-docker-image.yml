@@ -52,6 +52,6 @@ jobs:
           push: true
           provenance: false
           no-cache: true
-       tags: |
-          ${{ env.IMAGE_NAME }}
-          ${{ env.IMAGE_SHA }}
+          tags: |
+            ${{ env.IMAGE_NAME }}
+            ${{ env.IMAGE_SHA }}
