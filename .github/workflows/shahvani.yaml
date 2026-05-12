@@ -1,0 +1,31 @@
+name: DailyTests2
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: run crawl of test website
+        run: |
+          docker run \
+            -v $(pwd):/output \
+            ghcr.io/openzim/zimit \
+            zimit \
+            --workers 10 \
+            --seeds https://shahvani.com/,https://shahvani.com/dastans \
+            --name shahvani-website \
+            --waitUntil domcontentloaded \
+            --scopeExcludeRx="(\?q=|signup-landing\?|\?cid=)" \
+            --output /output
+
+      - name: Upload ZIM
+        uses: actions/upload-artifact@v4
+        with:
+          name: shahvani-zim
+          path: "*.zim"
