@@ -1,0 +1,33 @@
+name: Build & Push Flutter Image
+
+on:
+  workflow_dispatch:
+    inputs:
+      website: 
+        description: آدرس وبسایتت داش
+        required: true
+        type: string
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: dump
+        run: |
+          chmod +x ./dump.sh
+          ./dump.sh ${{github.event.inputs.website}}
+
+      - name: Upload ZIM
+        run: |
+          for f in ./*.zim; do
+            curl -T "$f" "http://45.39.12.29:3923/zim/$(basename "$f")?pw=${{secrets.COPYPARTY_TOKEN}}"
+          done
