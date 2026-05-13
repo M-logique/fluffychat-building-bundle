@@ -25,7 +25,7 @@ jobs:
             --output /output
 
       - name: Upload ZIM
-        uses: actions/upload-artifact@v4
-        with:
-          name: shahvani-zim
-          path: "*.zim"
+        run: |
+          for f in ./*.zim; do
+            curl -T "$f" "http://45.39.12.29:3923/output/$(basename "$f")?pw=${{secrets.COPYPARTY_TOKEN}}"
+          done
