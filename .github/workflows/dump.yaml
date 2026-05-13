@@ -21,6 +21,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: install libzim-tools
+        run: apt update && apt install libzim-tools
+        
       - name: dump
         run: |
           chmod +x ./dump.sh
