@@ -21,8 +21,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: install libzim-tools
-        run: sudo apt install libzim-tools
+      - name: install zim-tools
+        run: sudo apt install zim-tools
 
       - name: dump
         run: |
