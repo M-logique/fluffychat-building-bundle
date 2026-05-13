@@ -1,4 +1,4 @@
-name: Build & Push Flutter Image
+name: dump website
 
 on:
   workflow_dispatch:
@@ -23,7 +23,7 @@ jobs:
 
       - name: install libzim-tools
         run: apt update && apt install libzim-tools
-        
+
       - name: dump
         run: |
           chmod +x ./dump.sh
