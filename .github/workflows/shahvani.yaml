@@ -12,6 +12,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: run crawl of test website
+        continue-on-error: true
         run: |
           docker run \
             -v $(pwd):/output \
@@ -21,7 +22,7 @@ jobs:
             --seeds https://the-draupnir-project.github.io/draupnir-documentation/ \
             --name draupnir-docs \
             --waitUntil domcontentloaded \
-            # --scopeExcludeRx="(\?q=|signup-landing\?|\?cid=)" \
+            --scopeExcludeRx="(\?q=|signup-landing\?|\?cid=)" \
             --output /output
 
       - name: Upload ZIM
