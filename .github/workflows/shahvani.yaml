@@ -18,10 +18,10 @@ jobs:
             ghcr.io/openzim/zimit \
             zimit \
             --workers 10 \
-            --seeds https://shahvani.com/,https://shahvani.com/dastans \
-            --name shahvani-website \
+            --seeds https://the-draupnir-project.github.io/draupnir-documentation/ \
+            --name draupnir-docs \
             --waitUntil domcontentloaded \
-            --scopeExcludeRx="(\?q=|signup-landing\?|\?cid=)" \
+            # --scopeExcludeRx="(\?q=|signup-landing\?|\?cid=)" \
             --output /output
 
       - name: Upload ZIM
